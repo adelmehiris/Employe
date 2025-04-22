@@ -5,16 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ListeProduitsComponent } from './components/produits/liste-produits/liste-produits.component';
-import { DetailProduitComponent } from './components/produits/detail-produit/detail-produit.component';
-import { FormulaireCommandeComponent } from './components/commandes/formulaire-commande/formulaire-commande.component';
+import {EmployeListComponent} from "./Components/employe-list/employe-list.component";
+import {EmployeDetailComponent} from "./Components/employe-detail/employe-detail.component";
+import {CongeFormComponent} from "./Components/conge-form/conge-form.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListeProduitsComponent,
-    DetailProduitComponent,
-    FormulaireCommandeComponent
+    EmployeListComponent,
+    EmployeDetailComponent,
+    CongeFormComponent
   ],
   imports: [
     BrowserModule,

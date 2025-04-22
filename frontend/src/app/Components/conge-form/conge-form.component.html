@@ -1,0 +1,43 @@
+<div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-semibold mb-4">Demande de congé</h2>
+  <form [formGroup]="congeForm" (ngSubmit)="submit()" class="space-y-4">
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Date début :</label>
+      <input type="date" formControlName="dateDebut"
+             class="mt-1 block w-full border border-gray-300 rounded px-3 py-2">
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Date fin :</label>
+      <input type="date" formControlName="dateFin"
+             class="mt-1 block w-full border border-gray-300 rounded px-3 py-2">
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Type de congé :</label>
+      <select formControlName="typeConge"
+              class="mt-1 block w-full border border-gray-300 rounded px-3 py-2">
+        <option value="">-- Sélectionner --</option>
+        <option value="CONGE_PAYE">Congé payé</option>
+        <option value="RTT">RTT</option>
+        <option value="SANS_SOLDE">Sans solde</option>
+      </select>
+    </div>
+
+    <button type="submit"
+            [disabled]="loading"
+            class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded">
+      Envoyer
+    </button>
+
+    @if (successMessage) {
+      <div class="text-green-600 font-medium">{{ successMessage }}</div>
+    }
+    @if (errorMessage) {
+      <div class="text-red-600 font-medium">{{ errorMessage }}</div>
+    }
+  </form>
+  @if (loading) {
+    <p class="text-gray-500 mt-2">Envoi en cours...</p>
+  }
+</div>

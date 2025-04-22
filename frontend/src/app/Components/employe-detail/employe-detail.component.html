@@ -1,0 +1,20 @@
+<div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-semibold mb-4">Détail de l'employé</h2>
+  @if (employe) {
+    <div class="space-y-2">
+      <p><strong>Nom :</strong> {{ employe.nom }}</p>
+      <p><strong>Prénom :</strong> {{ employe.prenom }}</p>
+      <p><strong>Catégorie :</strong> {{ employe.categorie }}</p>
+      <p><strong>Date d'embauche :</strong> {{ employe.dateEmbauche }}</p>
+      <p><strong>Congés disponibles :</strong> {{ employe.soldeConges }}</p>
+      @if (employe.soldeRTT) {
+        <p><strong>RTT :</strong> {{ employe.soldeRTT }}</p>
+      }
+
+      <a [routerLink]="['/employe', employe.id, 'conge']"
+         class="mt-4 inline-block bg-cyan-500 text-white px-4 py-2 rounded hover:bg-cyan-600">
+        Demander un congé
+      </a>
+    </div>
+  }
+</div>

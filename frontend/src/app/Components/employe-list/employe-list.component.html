@@ -1,0 +1,23 @@
+<div class="p-6 max-w-4xl mx-auto bg-white rounded-xl shadow-md space-y-4">
+  <h2 class="text-xl font-bold text-gray-800">Cadres</h2>
+  @if (!loading) {
+    <ul>
+      <li *ngFor="let emp of cadres" class="py-1">
+        <a [routerLink]="['/employe', emp.id]" class="text-cyan-600 hover:underline">{{ emp.prenom }} {{ emp.nom }}</a>
+      </li>
+    </ul>
+  }
+
+  <h2 class="text-xl font-bold text-gray-800 mt-6">Non-Cadres</h2>
+  @if (!loading) {
+    <ul>
+      <li *ngFor="let emp of nonCadres" class="py-1">
+        <a [routerLink]="['/employe', emp.id]" class="text-cyan-600 hover:underline">{{ emp.prenom }} {{ emp.nom }}</a>
+      </li>
+    </ul>
+  }
+  @if (loading) {
+    <p class="text-gray-500">Chargement en cours...</p>
+  }
+</div>
+
